@@ -9,8 +9,8 @@ db = SQLAlchemy(app)
 
 from models import ContactMessage
 
-@app.before_first_request
-def create_tables():
+# データベースを初期化
+with app.app_context():
     db.create_all()
 
 @app.route('/')
